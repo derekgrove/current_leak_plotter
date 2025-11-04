@@ -38,7 +38,7 @@ def _parse_data():
     
     for entry in db_data[1:]:  # Skip header if present
         module_name = entry[0]
-        date = format_date(entry[1])
+        date = _format_date(entry[1])
         current = float(entry[2])
         
         # Append tuple of (date, current)
@@ -46,7 +46,7 @@ def _parse_data():
     
     return data_by_module
 
-def format_date(date_str):
+def _format_date(date_str):
 
     """
     converts the date string to a datetime obj with useful methods

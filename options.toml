@@ -1,11 +1,5 @@
 
-run_all = false #if true, this skips all other possible configurations below and just plots everything
-
-time_range = ["2022-01-01 01:00:00", "2025-10-01 01:00:00"]
-
-plot_all_bpix = true
-
-plot_all_fpix = true
+run_all = false #if true, this skips all other possible configurations below and just plots everything. I would not recommend right now
 
 plot_specific_modules = true
 
@@ -18,18 +12,13 @@ specific_modules = [
     'FPix_BmI_D3_ROG4_RNG1_HV',
     ]
 
-plot_BPix_LAY2 = false
+# plot_BPix_LAY2 = false #not implemented yet
+
+# The below is also not implemented yet, its coming soon though, stay tuned!
+
+#time_range = ["2022-01-01 01:00:00", "2025-10-01 01:00:00"]
 
 
-
-# Option for just layer 2
-# Just this year
-# Or just last two months
-
-# plot_BPix_LAY2: false
-# BPix_LAY2_wildcard: "BPix%LAY2_HV"
-
-# # "BPix_BpO_SEC5_LAY23_LAY2_HV" example of one Power Group
 # BPix: #In the below lists, leave in the wildcard values you would like to query for
 #   useBpix: true
 #   position 1: ['BmI', 'BmO', 'BpI', 'BpO']

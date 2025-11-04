@@ -9,9 +9,12 @@ def plot_currents(data_dict):
         dates, currents = zip(*date_current_tuples)
         ax.plot(dates, currents, marker='o', label=module_name)  # 'o' adds circular points
     
-    ax.set_ylabel("HV Leakage Current (nA)", fontsize=20)
+    ax.set_ylabel("HV Leakage Current (μA?)", fontsize=20)
     ax.set_xlabel("Date", fontsize=20)
     ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    
+
+    ax.grid(True, alpha=0.5, linestyle='--', linewidth=0.5)
 
     plt.xticks(rotation=45, ha='right')
     plt.show()
