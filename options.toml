@@ -1,5 +1,5 @@
 
-run_all = false #if true, this skips all other possible configurations below and just plots everything. I would not recommend right now
+run_all = true #if true, this skips all other possible configurations below and just plots everything. I would not recommend right now
 
 plot_specific_modules = true
 

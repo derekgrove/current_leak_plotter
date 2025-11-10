@@ -28,8 +28,7 @@ def _parse_data():
 
     options, db_data = _load_files()
 
-    # Only filter if run_all is False
-    if not options.get('run_all', False) and options.get('plot_specific_modules', False):
+    if options['plot_specific_modules']:
         modules = set(options['specific_modules'])
         db_data = [entry for entry in db_data if entry[0] in modules]
         
