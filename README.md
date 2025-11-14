@@ -2,7 +2,7 @@
 
 clone the repository to whatever working area you'd like, this project is all self contained in one folder.
 
-There is only one dependency for simplicity, `matplotlib`. This is also written for python 3. 
+There are only two dependencies for simplicity, `matplotlib` and `mplcursors`. This is also written for python 3. 
 
 If you have conda or mamba installed then simply do:
 
@@ -11,6 +11,8 @@ If you have conda or mamba installed then simply do:
 `conda activate hv_plot_env`
 
 `conda install matplotlib`
+
+`conda install mplcursors`
 
 And after that is finished installing you can run the project with just:
 
