@@ -7,14 +7,14 @@
 time_range = ['2024-05-01 00:00:00', '2025-10-01 00:00:00']
 
 # plot all modules for the specified time range (very busy plot, not that useful)
-run_all = false
+run_all = true
 
 # plot only the modules listed by name in specific_modules (this one probably has the most functionality)
-plot_specific_modules = false
+plot_specific_modules = true
 
 # plot all of bpix or fpix for convenience
-plot_all_bpix = false
-plot_all_fpix = false
+plot_all_bpix = true
+plot_all_fpix = true
 
 # Plot BPix modules by string filters
 bpix_by_string_filters = true

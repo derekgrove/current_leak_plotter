@@ -202,7 +202,6 @@ def get_all_plots():
                 current = float(entry[2])
                 data_by_module[module_name].append((date, current))
         plots['All Modules'] = data_by_module
-        return plots
     
     # Plot specific modules
     if options.get('plot_specific_modules', False):
