@@ -1,60 +1,72 @@
 
 # Change these values to configure what is plotted from the csv
 
-# Time range filter (applied to all plots if uncommented)
-# Format: ["start_datetime", "end_datetime"]
-time_range = ["2024-05-01 00:00:00", "2025-10-01 00:00:00"]
+# Time range filter (applied to all plots)
+# Format: [start, stop] ['2024-05-01 00:00:00', '2025-10-01 00:00:00']
 
-run_all = false # plots all modules for the specified time range (very busy plot, not that useful)
+time_range = ['2024-05-01 00:00:00', '2025-10-01 00:00:00']
 
-# Individual plot types - each creates a separate plot
+# plot all modules for the specified time range (very busy plot, not that useful)
+run_all = false
 
-plot_all_bpix = true
-plot_all_fpix = true
+# plot only the modules listed by name in specific_modules (this one probably has the most functionality)
+plot_specific_modules = false
 
+# plot all of bpix or fpix for convenience
+plot_all_bpix = false
+plot_all_fpix = false
 
-# Specific modules to plot together (this one has the most functionality for investigating specific modules)
-plot_specific_modules = true
+# Plot BPix modules by string filters
+bpix_by_string_filters = true
+
+# Plot FPix modules by string filters
+fpix_by_string_filters = true
+
 
 specific_modules = [
-    "BPix_BpI_SEC3_LAY14_LAY4_HV",
-    "BPix_BmO_SEC4_LAY23_LAY3_HV",
-    "FPix_BmO_D1_ROG2_RNG2_HV",
-    "FPix_BmO_D1_ROG3_RNG1_HV",
-    "BPix_BpI_SEC1_LAY14_LAY4_HV",
-    "FPix_BmI_D3_ROG4_RNG1_HV",
+    'BPix_BpI_SEC3_LAY14_LAY4_HV',
+    'BPix_BmO_SEC4_LAY23_LAY3_HV',
+    'FPix_BmO_D1_ROG2_RNG2_HV',
+    'FPix_BmO_D1_ROG3_RNG1_HV',
+    'BPix_BpI_SEC1_LAY14_LAY4_HV',
+    'FPix_BmI_D3_ROG4_RNG1_HV',
 ]
 
-# Filter combinations - each enabled filter creates a separate plot
-# Format: "filter_name" = ["value1", "value2", ...]
-plot_by_filters = true
-# If above is true, below options will be used to make a single plot of modules that contain these names
-[filters]
-BpI = true  # Plots all modules containing "BpI"
-BmO = true  # Plots all modules containing "BmO"
-ROG1 = false
-ROG2 = false
-D1 = true
-LAY4 = false
+
+# Naming convention: BPix_BmI_SEC1_LAY14_LAY1_HV
+# pos_1 = 'BmI', pos_2 = 'SEC1', pos_3 = 'LAY14', pos_4 = 'LAY1'
+[bpix_filters]
+pos_1 = ['BmI']
+pos_2 = ['SEC1']
+pos_3 = ['LAY14', 'LAY23']
+pos_4 = ['LAY1', 'LAY1', 'LAY2', 'LAY3', 'LAY4']
+
+# All possible strings: PLEASE KEEP THIS HERE AS A REFERENCE
+#   pos_1: ['BmI', 'BmO', 'BpI', 'BpO']
+#   pos_2: ['SEC1', 'SEC2', 'SEC3', 'SEC4', 'SEC5', 'SEC6', 'SEC7', 'SEC8']
+#   pos_3: ['LAY14', 'LAY23']
+#   pos_4: ['LAY1', 'LAY2', 'LAY3', 'LAY4']
+
+# Naming convention: FPix_BmI_D1_ROG1_RNG1_HV
+# pos_1 = 'BmI', pos_2 = 'D1', pos_3 = 'ROG1', pos_4 = 'RNG1'
+[fpix_filters]
+pos_1 = ['BmI', 'BmO', 'BpI', 'BpO']
+pos_2 = ['D1']
+pos_3 = ['ROG1']
+pos_4 = ['RNG1']
+
+# All possible strings: PLEASE KEEP THIS HERE AS A REFERENCE
+#   pos_1: ['BmI', 'BmO', 'BpI', 'BpO']
+#   pos_2: ['D1', 'D2', 'D3']
+#   pos_3: ['ROG1', 'ROG2', 'ROG3', 'ROG4']
+#   pos_4: ['RNG1', 'RNG2']
 
 
-# BPix: #In the below lists, leave in the wildcard values you would like to query for
-#   useBpix: true
-#   position 1: ['BmI', 'BmO', 'BpI', 'BpO']
-#   position 2: ['SEC1', 'SEC2', 'SEC3', 'SEC4', 'SEC5', 'SEC6', 'SEC7', 'SEC8'] # Sector
-#   position 3: ['LAY14', 'LAY23'] # Layer
-#   position 4: ['LAY1', 'LAY2', 'LAY3', 'LAY4'] #Layer number
 
-# FPIX:
-#   useFPix: false
-#   position 1: ['BmI', 'BmO', 'BpI', 'BpO'] 
-#   position 2: ['D1', 'D2', 'D3']
-#   position 3: ['ROG1', 'ROG2', 'ROG3', 'ROG4']
-#   position 4: ['RNG1', 'RNG2']
+# This should be a list of all the modules (Power Groups?) in database
+# Please keep as a reference, all the above formats are derived from these lists
 
-# This should be a list of all the modules (Power Groups?) in database:
-
-#BPIX:
+# BPIX:
 
 # ['BPix_BmI_SEC1_LAY14_LAY1_HV', 'BPix_BmI_SEC1_LAY14_LAY4_HV', 'BPix_BmI_SEC1_LAY23_LAY2_HV']
 # ['BPix_BmI_SEC1_LAY23_LAY3_HV', 'BPix_BmI_SEC2_LAY14_LAY1_HV', 'BPix_BmI_SEC2_LAY14_LAY4_HV']
@@ -99,7 +111,7 @@ LAY4 = false
 # ['BPix_BpO_SEC7_LAY23_LAY2_HV', 'BPix_BpO_SEC7_LAY23_LAY3_HV', 'BPix_BpO_SEC8_LAY14_LAY1_HV']
 # ['BPix_BpO_SEC8_LAY14_LAY4_HV', 'BPix_BpO_SEC8_LAY23_LAY2_HV', 'BPix_BpO_SEC8_LAY23_LAY3_HV']
 
-#FPIX:
+# FPIX:
 
 # ['FPix_BmI_D1_ROG1_RNG1_HV', 'FPix_BmI_D1_ROG1_RNG2_HV', 'FPix_BmI_D1_ROG2_RNG1_HV']
 # ['FPix_BmI_D1_ROG2_RNG2_HV', 'FPix_BmI_D1_ROG3_RNG1_HV', 'FPix_BmI_D1_ROG3_RNG2_HV']
