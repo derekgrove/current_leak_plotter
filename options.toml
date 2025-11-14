@@ -1,6 +1,19 @@
 
-run_all = true #if true, this skips all other possible configurations below and just plots everything. I would not recommend right now
+# Change these values to configure what is plotted from the csv
 
+# Time range filter (applied to all plots if uncommented)
+# Format: ["start_datetime", "end_datetime"]
+time_range = ["2024-05-01 00:00:00", "2025-10-01 00:00:00"]
+
+run_all = false # plots all modules for the specified time range (very busy plot, not that useful)
+
+# Individual plot types - each creates a separate plot
+
+plot_all_bpix = true
+plot_all_fpix = true
+
+
+# Specific modules to plot together (this one has the most functionality for investigating specific modules)
 plot_specific_modules = true
 
 specific_modules = [
@@ -8,15 +21,21 @@ specific_modules = [
     "BPix_BmO_SEC4_LAY23_LAY3_HV",
     "FPix_BmO_D1_ROG2_RNG2_HV",
     "FPix_BmO_D1_ROG3_RNG1_HV",
-    'BPix_BpI_SEC1_LAY14_LAY4_HV',
-    'FPix_BmI_D3_ROG4_RNG1_HV',
-    ]
+    "BPix_BpI_SEC1_LAY14_LAY4_HV",
+    "FPix_BmI_D3_ROG4_RNG1_HV",
+]
 
-# plot_BPix_LAY2 = false #not implemented yet
-
-# The below is also not implemented yet, its coming soon though, stay tuned!
-
-#time_range = ["2022-01-01 01:00:00", "2025-10-01 01:00:00"]
+# Filter combinations - each enabled filter creates a separate plot
+# Format: "filter_name" = ["value1", "value2", ...]
+plot_by_filters = true
+# If above is true, below options will be used to make a single plot of modules that contain these names
+[filters]
+BpI = true  # Plots all modules containing "BpI"
+BmO = true  # Plots all modules containing "BmO"
+ROG1 = false
+ROG2 = false
+D1 = true
+LAY4 = false
 
 
 # BPix: #In the below lists, leave in the wildcard values you would like to query for
